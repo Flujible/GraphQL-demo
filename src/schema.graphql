@@ -1,0 +1,10 @@
+enum Suits {
+  H
+  S
+  C
+  D
+}
+
+type Query {
+    drawCard(value: Int, suit: Suits): String
+  }
