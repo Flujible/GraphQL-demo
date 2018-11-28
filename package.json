@@ -6,7 +6,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
-    "graphpack": "^1.0.4",
+    "graphpack": "^1.0.6",
     "graphql": "^14.0.2"
   },
   "devDependencies": {},
