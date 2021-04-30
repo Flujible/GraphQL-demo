@@ -1,14 +1,15 @@
 const resolvers = {
-    Query: {
-      drawCard: (obj, args) => {        
-        let value = args.value ? args.value : genValue();
-        let suit = args.suit ? args.suit : genSuit();
+  Query: {
+    drawCard: (obj, args) => {
+      const value = args.value ? args.value : genValue();
+      const suit = args.suit ? args.suit : genSuit();
 
-        return value + suit;
-      },
+      return value + suit;
     },
-  };
-   
+    hello: () => "Hello there :)"
+  },
+};
+
 const genValue = () => {
   const value = Math.floor(Math.random()*13 + 1);
 
@@ -34,4 +35,4 @@ const genSuit = () => {
   return mapping[value];
 }
 
-  export default resolvers;
+export default resolvers;
