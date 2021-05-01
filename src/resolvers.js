@@ -1,5 +1,26 @@
 const gameData = require('../data/games.json');
 
+// Resolvers are the counter parts to the schema queries and mutations
+// The schema defines what queries can be made and the resolvers define what happens when those queries are run
+const resolvers = {
+  // The structure of a resolver is to have the query name as the key, and the function to be executed when the
+  // query is received as the value. The `hello` query here simply returns the string "Hello there :)"
+  // Queries are the client asking for data, so the resolvers should return some data
+  // When a query takes an argument, its resolver always takes 2 arguments (no matter how many args are passed into
+  // the query). The arguments passed into the query are found in the args object
+  Query: {
+    hello: () => "Hello there :)",
+    game: (obj, args) => findGame(args.id),
+    games: (obj, args) => gameData.games,
+  },
+  // The structure of a mutation is the same as a query. The function executed should update the data.
+  Mutation: {
+    addGame: (obj, args) => addGame(args.game),
+    removeGame: (obj, args) => removeGame(args.id),
+    updateTags: (obj, args) => updateGameTags(args.id, args.tags, args.remove)
+  }
+};
+
 const findGame = (id) => {
   return gameData.games.filter(id => game.id === id);
 }
@@ -45,22 +66,5 @@ const updateGameTags = (id, tags, remove) => {
     game
   }
 }
-
-const resolvers = {
-  Query: {
-    hello: () => "Hello there :)",
-    game: (obj, args) => {
-      return findGame(args.id);
-    },
-    games: (obj, args) => {
-      return gameData.games;
-    },
-  },
-  Mutation: {
-    addGame: (obj, args) => addGame(args.game),
-    removeGame: (obj, args) => removeGame(args.id),
-    updateTags: (obj, args) => updateGameTags(args.id, args.tags, args.remove)
-  }
-};
 
 exports.resolvers = resolvers;
