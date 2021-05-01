@@ -1,0 +1,105 @@
+{
+  "games": [
+    {
+      "id": 0,
+      "name": "Azul",
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "tags": [
+        "Abstract",
+        "Family"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Oceans",
+      "minPlayers": 2,
+      "maxPlayers": 4,
+      "tags": [
+        "Strategy",
+        "Engine builder"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Hive",
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "tags": [
+        "Strategy",
+        "Chess"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Treasure Island",
+      "minPlayers": 2,
+      "maxPlayers": 5,
+      "tags": [
+        "Thematic",
+        "Family"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Betrayal at house on the hill",
+      "minPlayers": 3,
+      "maxPlayers": 6,
+      "tags": [
+        "Thematic",
+        "Horror",
+        "Cooperative"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Railroad Ink",
+      "minPlayers": 1,
+      "maxPlayers": 6,
+      "tags": [
+        "Solo",
+        "Family"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Arkham Horror: The Card Game",
+      "minPlayers": 1,
+      "maxPlayers": 2,
+      "tags": [
+        "Horror",
+        "Customisable",
+        "Thematic"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Sushi Go",
+      "minPlayers": 2,
+      "maxPlayers": 8,
+      "tags": [
+        "Party",
+        "Family"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Cobra Paw",
+      "minPlayers": 2,
+      "maxPlayers": 6,
+      "tags": [
+        "Kids",
+        "Fast reflexes"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Codenames",
+      "minPlayers": 2,
+      "maxPlayers": 8,
+      "tags": [
+        "Party"
+      ]
+    }
+  ]
+}
