@@ -4,18 +4,15 @@
   "description": "Playing around with graphql",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1",
-    "express-graphql": "^0.7.1",
-    "graphpack": "^1.0.9",
-    "graphql": "^14.7.0",
-    "graphql-tag": "^2.12.4"
+    "apollo-server": "^2.23.0",
+    "graphql": "^15.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "echo Please use 'npm run dev'",
-    "dev": "graphpack",
-    "build": "graphpack build"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
