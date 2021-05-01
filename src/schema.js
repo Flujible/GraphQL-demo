@@ -1,17 +1,39 @@
-import { gql } from 'graphql-tag';
+const { gql } = require('apollo-server');
 
-const schema = gql`
-  enum Suits {
-    H
-    S
-    C
-    D
+const typeDefs = gql`
+  type Game {
+    id: Int!,
+    name: String!,
+    minPlayers: Int,
+    maxPlayers: Int,
+    tags: [String]
+  }
+
+  type GameUpdateResponse {
+    success: Boolean,
+    message: String,
+    game: Game
   }
 
   type Query {
-    drawCard(value: Int, suit: Suits): String,
-    hello: String,
+    game(id: Int!): Game,
+    games: [Game],
+    hello: String
+  }
+
+  input GameInput {
+    id: Int!,
+    name: String!
+    minPlayers: Int,
+    maxPlayers: Int,
+    tags: [String]
+  }
+
+  type Mutation {
+    addGame(game: GameInput!): GameUpdateResponse!,
+    removeGame(id: Int!): GameUpdateResponse!,
+    updateTags(id: Int!, tags: [String]!, remove: Boolean): GameUpdateResponse!
   }
 `;
 
-export default schema;
+exports.typeDefs = typeDefs;
