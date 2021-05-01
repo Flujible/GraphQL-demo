@@ -1,38 +1,66 @@
+const gameData = require('../data/games.json');
+
+const findGame = (id) => {
+  return gameData.games.filter(id => game.id === id);
+}
+
+const addGame = (game) => {
+  const newGame = {
+    id: game.id,
+    name: game.name,
+    minPlayers: game.minPlayers,
+    maxPlayers: game.maxPlayers,
+    tags: game.tags
+  };
+
+  gameData.games.push(newGame);
+
+  return {
+    success: true,
+    message: "Successfully added game",
+    game: newGame
+  };
+}
+
+const removeGame = (id) => {
+  const index = gameData.games.findIndex(game => game.id === id);
+  gameData.games.splice(index, 1);
+}
+
+const updateGameTags = (id, tags, remove) => {
+  const game = gameData.games.find(game => game.id === id);
+
+  if (!remove) {
+    tags.forEach(tag => {
+      game.tags.push(tag);
+    });
+  } else {
+    const index = game.tags.findIndex(tag => tag === tag);
+    game.tags.splice(index, 1);
+  }
+
+  return {
+    success: true,
+    message: "Successfully updated tags",
+    game
+  }
+}
+
 const resolvers = {
   Query: {
-    drawCard: (obj, args) => {
-      const value = args.value ? args.value : genValue();
-      const suit = args.suit ? args.suit : genSuit();
-
-      return value + suit;
+    hello: () => "Hello there :)",
+    game: (obj, args) => {
+      return findGame(args.id);
     },
-    hello: () => "Hello there :)"
+    games: (obj, args) => {
+      return gameData.games;
+    },
   },
+  Mutation: {
+    addGame: (obj, args) => addGame(args.game),
+    removeGame: (obj, args) => removeGame(args.id),
+    updateTags: (obj, args) => updateGameTags(args.id, args.tags, args.remove)
+  }
 };
 
-const genValue = () => {
-  const value = Math.floor(Math.random()*13 + 1);
-
-  const mapping = {
-    '1': 'A',
-    '10':'0',
-    '11': 'J',
-    '12': 'Q',
-    '13': 'K',
-  }
-
-  return value >= 10 || value === 1 ? mapping[value] : value.toString();
-}
-
-const genSuit = () => {
-  const value = Math.floor(Math.random()*4 +1);
-  const mapping = {
-    '1': 'H',
-    '2': 'S',
-    '3': 'C',
-    '4': 'D'
-  }
-  return mapping[value];
-}
-
-export default resolvers;
+exports.resolvers = resolvers;
