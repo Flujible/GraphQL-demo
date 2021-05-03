@@ -4,7 +4,7 @@ const gameData = require('../data/games.json');
 // The schema defines what queries can be made and the resolvers define what happens when those queries are run
 const resolvers = {
   // The structure of a resolver is to have the query name as the key, and the function to be executed when the
-  // query is received as the value. The `hello` query here simply returns the string "Hello there :)"
+  // query is received as the value. The 'hello' query here simply returns the string "Hello there :)"
   // Queries are the client asking for data, so the resolvers should return some data
   // When a query takes an argument, its resolver always takes 2 arguments (no matter how many args are passed into
   // the query). The arguments passed into the query are found in the args object
