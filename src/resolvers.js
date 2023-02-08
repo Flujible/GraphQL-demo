@@ -22,7 +22,7 @@ const resolvers = {
 };
 
 const findGame = (id) => {
-  return gameData.games.filter(id => game.id === id);
+  return gameData.games.find(game => game.id === id);
 }
 
 const addGame = (game) => {
