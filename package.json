@@ -4,7 +4,7 @@
   "description": "Playing around with graphql",
   "main": "server.js",
   "dependencies": {
-    "apollo-server": "^2.23.0",
+    "apollo-server": "^3.11.1",
     "graphql": "^15.5.0"
   },
   "devDependencies": {
