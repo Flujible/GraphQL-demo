@@ -7,17 +7,11 @@ const { gql } = require('apollo-server');
 // Mutations (updating, adding, removing data) are defined as 'type Mutation'
 const typeDefs = gql`
   type Game {
-    id: Int!,
-    name: String!,
-    minPlayers: Int,
-    maxPlayers: Int,
+    id: Int!
+    name: String!
+    minPlayers: Int
+    maxPlayers: Int
     tags: [String]
-  }
-
-  type GameUpdateResponse {
-    success: Boolean,
-    message: String,
-    game: Game
   }
 
   # Each query is one key:value pair in the 'type Query' object
@@ -25,24 +19,31 @@ const typeDefs = gql`
   # The 'key' of the key:value pair is the query name
   # The 'value' of the key:value pair defines the type that the query will return
   type Query {
-    hello: String,
-    game(id: Int!): Game,
+    hello: String
+    game(id: Int!): Game
     games: [Game]
   }
 
   # The 'input' type is used when a non standard type is needed for arguments in mutation calls
   input GameInput {
-    id: Int!,
+    id: Int!
     name: String!
-    minPlayers: Int,
-    maxPlayers: Int,
+    minPlayers: Int
+    maxPlayers: Int
     tags: [String]
+  }
+
+  # This defines the shape of the responses from mutations
+  type GameUpdateResponse {
+    success: Boolean
+    message: String
+    game: Game
   }
 
   # Mutations, much like queries, define a mutation name, arguments, and a response type
   type Mutation {
-    addGame(game: GameInput!): GameUpdateResponse!,
-    removeGame(id: Int!): GameUpdateResponse!,
+    addGame(game: GameInput!): GameUpdateResponse!
+    removeGame(id: Int!): GameUpdateResponse!
     updateTags(id: Int!, tags: [String]!, remove: Boolean): GameUpdateResponse!
   }
 `;
